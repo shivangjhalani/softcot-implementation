@@ -133,19 +133,17 @@ for n, p in model.named_parameters():
     total_param += p.numel()
 logger.info(f'Trainable Parameters: {trainable_param}; Total Parameters: {total_param}')
 
-data_dir = f'./data/{task_name}'
-
 if task_name in ['gsm8k']:
-    db = GSM8KLoader().load(data_dir)
+    db = GSM8KLoader().load()
     preprocess_method = pre_process_gsm8k
 elif task_name in ['strategyqa']:
-    db = StrategyQALoader().load(data_dir)
+    db = StrategyQALoader().load()
     preprocess_method = pre_process_strategy_qa
 elif task_name in ['asdiv-aug']:
-    db = AugASDivLoader().load(data_dir)
+    db = AugASDivLoader().load()
     preprocess_method = pre_process_gsm8k
 elif task_name in ['aqua']:
-    db = AQuALoader().load(data_dir)
+    db = AQuALoader().load()
     preprocess_method = pre_process_aqua
 else:
     raise NotImplementedError

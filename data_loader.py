@@ -1,4 +1,3 @@
-
 import os
 import json
 from typing import Union, Dict
@@ -23,7 +22,7 @@ class GSM8KLoader(Loader):
 
         return ds
 
-    def load(self, paths: Union[str, Dict[str, str]] = '/path/to/data/dir') -> DataBundle:
+    def load(self, paths: Union[str, Dict[str, str]] = 'data/gsm8k') -> DataBundle:
         if isinstance(paths, str):
             paths = {
                 'train': os.path.join(paths, 'train_socratic.jsonl'),
@@ -47,7 +46,7 @@ class AQuALoader(Loader):
 
         return ds
 
-    def load(self, paths: Union[str, Dict[str, str]] = '/path/to/data/dir') -> DataBundle:
+    def load(self, paths: Union[str, Dict[str, str]] = 'data/aqua') -> DataBundle:
         if isinstance(paths, str):
             paths = {
                 'train': os.path.join(paths, 'gsm_style_train.jsonl'),
@@ -71,7 +70,7 @@ class DULoader(Loader):
 
         return ds
 
-    def load(self, paths: Union[str, Dict[str, str]] = '/path/to/data/dir') -> DataBundle:
+    def load(self, paths: Union[str, Dict[str, str]] = 'data/date_understanding') -> DataBundle:
         if isinstance(paths, str):
             paths = {
                 'train': os.path.join(paths, 'date_understanding_gsm_style.json'),
@@ -101,7 +100,7 @@ class StrategyQALoader(Loader):
                 ds.append(Instance(**ins))
         return ds
 
-    def load(self, paths: Union[str, Dict[str, str]] = '/path/to/data/dir') -> DataBundle:
+    def load(self, paths: Union[str, Dict[str, str]] = 'data/strategyqa') -> DataBundle:
         if isinstance(paths, str):
             paths = {
                 'train': os.path.join(paths, 'strategyqa_train.json'),
@@ -113,7 +112,7 @@ class StrategyQALoader(Loader):
 
 
 class AugASDivLoader(GSM8KLoader):
-    def load(self, paths: Union[str, Dict[str, str]] = '/path/to/data/dir') -> DataBundle:
+    def load(self, paths: Union[str, Dict[str, str]] = 'data/asdiv-aug') -> DataBundle:
         if isinstance(paths, str):
             paths = {
                 'train': os.path.join(paths, 'aug-train.jsonl'),
