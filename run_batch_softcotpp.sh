@@ -16,7 +16,7 @@ test_k=0
 tune_assistant_model=false
 print_input=false
 print_response=false
-model_name="scaling"
+model_name="soft"
 log_dir="inference_logs"
 run_name=""
 
