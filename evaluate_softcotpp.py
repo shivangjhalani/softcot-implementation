@@ -1,6 +1,6 @@
-
 import re
 import argparse
+import os
 
 from tqdm import tqdm
 import torch
@@ -65,8 +65,8 @@ if assistant_model_ckpt in ['None']:
 model_dtype = torch.bfloat16
 param_dtype = str(model_dtype)
 
-base_tokenizer = AutoTokenizer.from_pretrained(base_model_id, token='your-huggingface-token')
-assistant_tokenizer = AutoTokenizer.from_pretrained(assistant_model_id, token='your-huggingface-token')
+base_tokenizer = AutoTokenizer.from_pretrained(base_model_id, token=os.environ.get("HF_TOKEN"))
+assistant_tokenizer = AutoTokenizer.from_pretrained(assistant_model_id, token=os.environ.get("HF_TOKEN"))
 
 if 'Llama' in base_model_id:
     base_special_token = ['<|end_of_text|>', '<|reserved_special_token_0|>', '<|reserved_special_token_1|>']
