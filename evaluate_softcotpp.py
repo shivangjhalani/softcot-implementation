@@ -139,8 +139,8 @@ elif base_backbone in ['qwen', 'qwen3']:
     generation_config.pad_token_id = 151643
 else:
     raise NotImplementedError
-generation_config.top_p = 1.0
-generation_config.temperature = 1.0
+generation_config.top_p = 0.95
+generation_config.temperature = 0.6
 
 correct_count = 0
 avg_token = 0
